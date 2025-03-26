@@ -1,7 +1,16 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "types": ["node"]
+    "baseUrl": "./",
+    "types": ["node"],
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+    },
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true, // JSON 파일을 import할 수 있도록 설정
+    "module": "ESNext",
+    "target": "ES6"
   }
 }

@@ -114,7 +114,6 @@ input[type="submit"]:hover, button:hover {
 .gap-10 {
     gap: 10px;
 }
-
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     nav {

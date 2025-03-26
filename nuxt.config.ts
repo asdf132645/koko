@@ -1,3 +1,4 @@
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -17,6 +18,8 @@ export default defineNuxtConfig({
   css: [
     // 전역 스타일시트 추가
     '~/assets/css/global.css',
+    '~/assets/css/darkMode.css',
+    '~/assets/css/default.css',
     '~/assets/css/media-queries.css',
   ],
 })
