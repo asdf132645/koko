@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -12,10 +11,12 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/scripts',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@nuxtjs/tailwindcss', // Tailwind CSS 모듈 추가
   ],
   css: [
     // 전역 스타일시트 추가
     '~/assets/css/global.css',
+    '~/assets/css/media-queries.css',
   ],
 })

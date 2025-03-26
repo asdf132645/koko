@@ -1,33 +1,137 @@
-/* global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 헤더 스타일 */
+
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and typography settings */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit; /* Links will inherit the color from the parent element */
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* Header styles */
 header {
     background-color: #333;
-    color: white;
-    padding: 1rem;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
 }
 
-nav ul {
+header h1 {
+    font-size: 2rem;
+}
+
+/* Navigation styles */
+nav {
     display: flex;
     justify-content: center;
-}
-
-nav li {
-    margin: 0 15px;
+    background-color: #444;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: uppercase;
 }
 
-/* 바텀 메뉴 스타일 */
+nav a:hover {
+    background-color: #555;
+}
+
+/* Main container */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Footer */
 footer {
     background-color: #333;
-    color: white;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, button, select, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"], button {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #555;
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    nav a {
+        padding: 8px 16px;
+    }
 }
