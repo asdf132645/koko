@@ -1,31 +1,19 @@
 <template>
   <div>
-    <!-- 헤더 -->
+    <!-- 커스텀 레이아웃의 헤더 -->
     <header>
-      <nav>
-        <ul>
-          <li><a href="/">홈</a></li>
-          <li><a href="/about">소개</a></li>
-          <li><a href="/contact">연락처</a></li>
-        </ul>
-      </nav>
+      <h1>커스텀 레이아웃 헤더</h1>
     </header>
 
-    <!-- 페이지 콘텐츠 -->
+    <!-- 페이지 콘텐츠는 여기에 삽입 -->
     <main>
-      <slot />
+      <slot></slot>
     </main>
 
-    <!-- 바텀 메뉴 -->
+    <!-- 커스텀 레이아웃의 푸터 -->
     <footer>
-      <ul>
-        <li><a href="/terms">이용약관</a></li>
-        <li><a href="/privacy">개인정보 보호</a></li>
-        <li><a href="/contact">문의하기</a></li>
-      </ul>
+      <p>커스텀 레이아웃 푸터</p>
     </footer>
   </div>
 </template>
 
-<script setup>
-</script>
