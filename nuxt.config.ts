@@ -21,5 +21,6 @@ export default defineNuxtConfig({
     '~/assets/css/darkMode.css',
     '~/assets/css/default.css',
     '~/assets/css/media-queries.css',
+    '~/assets/css/common.css',
   ],
 })

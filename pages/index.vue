@@ -20,7 +20,9 @@ import { ref, onMounted } from 'vue';
 import { languageStore } from '~/composables/languageStore'; // languageStore 불러오기
 
 const { t, setLocale } = languageStore(); // t와 setLocale 가져오기
-
+definePageMeta({
+  layoutProps: { showHeader: false }
+});
 // 다크 모드 상태
 const isDarkMode = ref(false);
 

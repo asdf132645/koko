@@ -4,7 +4,7 @@
 
 
 /* 다크 모드에서 적용할 스타일 */
-.dark body {
-    background-color: #000000; /* bg-darkBackground */
-    color: #ffffff; /* text-darkText */
-}
+/*.dark body {*/
+/*    background-color: #000000; !* bg-darkBackground *!*/
+/*    color: #ffffff; !* text-darkText *!*/
+/*}*/

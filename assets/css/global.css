@@ -14,8 +14,6 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
 /* Links */
@@ -45,7 +43,6 @@ header h1 {
 nav {
     display: flex;
     justify-content: center;
-    background-color: #444;
 }
 
 nav a {

@@ -1,0 +1,36 @@
+.buttonDefaultGreen {
+    color: #ffffff;
+    width: 100%;
+    background: #28CB8B;
+    border: none;
+}
+
+.buttonDefaultWhite {
+    color: #28CB8B;
+    width: 100%;
+    background: #ffffff;
+}
+
+.buttonDefaultGreenDark {
+    color: #ffffff;
+    width: 100%;
+    background: #28CB8B;
+    border: none;
+}
+
+.buttonDefaultWhiteDark {
+    color: #28CB8B;
+    width: 100%;
+    background: #ffffff;
+}
+
+
+.wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: #fff;
+    width: auto;
+    position: relative;
+    min-height: 100%;
+    box-shadow: 0 0 20px #0000000d;
+}
