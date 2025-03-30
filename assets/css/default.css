@@ -1,8 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 /* 기본 라이트 모드 스타일 */
 body {
     background-color: #ffffff; /* bg-background */
@@ -71,6 +66,34 @@ p.welcome-title2 {
     color: #595959;
 }
 
+li.welcome-item {
+    background: #F1F2F5;
+    margin: 20px 0;
+    border-radius: 10px;
+    padding: 20px;
+}
 
-.
+li.welcome-item > p > img {
+    width: 30px;
+}
+
+.welcome-item-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 200px;
+}
+
+.slide-item {
+    text-align: center;
+}
+
+.swiper-slide img {
+    width: 100px;
+    height: 100px;
+}
+
 /* 첫 시작 화면 end */

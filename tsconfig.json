@@ -1,16 +1,32 @@
 {
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "types": ["node"],
+    "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"],
+      "#app": [".nuxt/types/app/index.d.ts"],
+      "#build": [".nuxt/types/build/index.d.ts"]
     },
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
-    "resolveJsonModule": true, // JSON 파일을 import할 수 있도록 설정
+    "resolveJsonModule": true,
     "module": "ESNext",
-    "target": "ES6"
-  }
+    "target": "ESNext",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["@types/node", "nuxt", "@pinia/nuxt"]
+  },
+  "include": [
+    "nuxt.config.ts",
+    "plugins/**/*.ts",
+    "components/**/*.vue",
+    "pages/**/*.vue",
+    "layouts/**/*.vue",
+    "composables/**/*.ts",
+    "store/**/*.ts",
+    "app.vue",
+    ".nuxt/**/*.ts"
+  ]
 }

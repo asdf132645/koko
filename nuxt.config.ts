@@ -13,9 +13,15 @@ export default defineNuxtConfig({
         '@nuxt/eslint',
         '@nuxt/scripts',
         '@nuxt/ui',
-        '@nuxtjs/tailwindcss', // Tailwind CSS 모듈 추가
         '@pinia/nuxt',
     ],
+    typescript: {
+        strict: true,
+        shim: false // 또는 true로 설정해도 괜찮음
+    },
+    build: {
+        transpile: [ 'swiper']
+    },
     css: [
         // 전역 스타일시트 추가
         '~/assets/css/global.css',
@@ -23,5 +29,6 @@ export default defineNuxtConfig({
         '~/assets/css/default.css',
         '~/assets/css/media-queries.css',
         '~/assets/css/common.css',
+        'swiper/swiper-bundle.css'
     ],
 })

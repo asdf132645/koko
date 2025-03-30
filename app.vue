@@ -12,7 +12,8 @@ import {useRoute} from "vue-router";
 
 const isLoading = ref(true);
 const route = useRoute();
-const router = useRouter()
+const router = useRouter();
+
 
 const layoutProps = computed(() => route.meta.layoutProps || {});
 onMounted(() => {

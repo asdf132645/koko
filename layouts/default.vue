@@ -40,6 +40,7 @@ const { setLocale } = languageStore as {
 const langVal = ref<'en' | 'ko'>(locale.value);  // 언어를 컴포넌트에서 반응형으로 관리
 
 const setLocaleF = () => {
+  console.log(langVal.value)
   langVal.value = langVal.value === 'en' ? 'ko' : 'en';
   setLocale(langVal.value);
 }

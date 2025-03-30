@@ -14,7 +14,6 @@ interface LanguageStore {
 export const useLanguageStore = defineStore('languageStore', () => {
     const storedLanguage = typeof window !== 'undefined' ? localStorage.getItem('currentLanguage') : null;
     const locale = ref<'en' | 'ko'>((storedLanguage as 'en' | 'ko') || 'en');
-
     const messages: Record<'en' | 'ko', Messages> = {
         en: enMessages,
         ko: koMessages,
