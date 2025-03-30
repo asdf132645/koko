@@ -137,18 +137,20 @@ form {
 input, button, select, textarea {
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #2f868f;
     border-radius: 4px;
 }
 
 input[type="submit"], button {
-    background-color: #333;
+    background-color: #23b1bf;
     color: #fff;
     cursor: pointer;
 }
 
 input[type="submit"]:hover, button:hover {
-    background-color: #555;
+    background-color: #2f868f;
+    color: #ffffff;
+    border: 1px solid #2f868f;
 }
 
 /* Utility classes */
@@ -195,9 +197,9 @@ input[type="submit"]:hover, button:hover {
 }
 
 .whiteBtn {
-    color: #000000;
+    color: #2f868f;
     background: #ffffff;
-    border: 1px solid #000000;
+    border: 1px solid #2f868f;
 }
 
 /* Media queries for responsiveness */

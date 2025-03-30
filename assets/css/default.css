@@ -16,6 +16,9 @@ p.logo > img {
 span.green-text {
     color: #28CB8B;
 }
+span.green-text2{
+    color: #658b7c;
+}
 div#custom-loading {
     width: 100%;
     max-width: 480px;
