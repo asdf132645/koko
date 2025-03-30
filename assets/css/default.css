@@ -11,10 +11,10 @@ body {
 .dock > img {
     display: block;
     text-indent: -999em;
-    max-height: 40px;
+    max-height: 30px;
     background: 50% 50% no-repeat;
     overflow: hidden;
-    max-width: 40px;
+    max-width: 30px;
     position: relative;
     width: 100%;
     height: 100%;
@@ -23,6 +23,54 @@ body {
 
 .dock {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%;
 }
+
+/* 첫 시작 화면 */
+.loader {
+    width: 100%;
+    height: 100vh;
+    background: #4CAF4F;
+}
+
+div#custom-loading {
+    width: 100%;
+    max-width: 480px;
+}
+
+.kokoCircle {
+    background: #fff;
+    border-radius: 100%;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    margin: 32vh auto 0% auto;
+    padding-top: 85px;
+    font-size: 5rem;
+    font-weight: 600;
+    color: #4CAF4F;
+}
+
+.kokoBottomText {
+    text-align: center;
+    margin-top: 41%;
+    font-size: 4rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+p.welcome-title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+p.welcome-title2 {
+    font-size: 1rem;
+    color: #595959;
+}
+
+
+.
+/* 첫 시작 화면 end */

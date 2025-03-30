@@ -1,28 +1,42 @@
 <template>
-  <div>
-    <h2>홈페이지</h2>
-    <!-- 동적으로 번역된 메시지 출력 -->
-    <p>{{ t('welcome') }}</p>
+  <section>
+    <p class="welcome-title">{{ t('welcome') }}</p>
+    <p class="welcome-title2">{{ t('welcome2') }}</p>
 
-    <!-- 다크 모드 토글 버튼 -->
-    <button @click="toggleDarkMode" class="p-2 bg-red-950 dark:bg-gray-700 rounded">
-      Toggle Dark Mode
-    </button>
+    <button class="width100 mt-2">{{t('welcomeBtnStart')}}</button>
+    <button class="width100 mt-1 whiteBtn">{{t('welcomeBtnGuide')}}</button>
 
-    <!-- 언어 선택 버튼 -->
-    <button @click="setLocale('ko')">한국어</button>
-    <button @click="setLocale('en')">English</button>
-  </div>
+  </section>
+  <hr class="border-line"/>
+  <section>
+    <div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+  </section>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { languageStore } from '~/composables/languageStore'; // languageStore 불러오기
+import { useLanguageStore } from '~/composables/languageStore';
+import { storeToRefs } from 'pinia';
 
-const { t, setLocale } = languageStore(); // t와 setLocale 가져오기
-definePageMeta({
-  layoutProps: { showHeader: false }
-});
+// Pinia store 가져오기
+const languageStore = useLanguageStore();
+
+// storeToRefs로는 오직 반응형 상태만 가져오므로, t와 setLocale은 직접 가져와야 함
+const { locale } = storeToRefs(languageStore);
+
+// t와 setLocale의 타입을 명확하게 지정
+const { t, setLocale } = languageStore as {
+  t: (key: string) => string;
+  setLocale: (lang: 'en' | 'ko') => void;
+};
+
 // 다크 모드 상태
 const isDarkMode = ref(false);
 
@@ -45,4 +59,9 @@ const toggleDarkMode = () => {
   // localStorage에 상태 저장
   localStorage.setItem('darkMode', isDarkMode.value.toString());
 };
+
+definePageMeta({
+  layoutProps: { showHeader: true }
+});
+
 </script>

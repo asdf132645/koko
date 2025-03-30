@@ -22,6 +22,10 @@ a {
     color: inherit; /* Links will inherit the color from the parent element */
 }
 
+li{
+    list-style: none;
+}
+
 a:hover,
 a:focus {
     text-decoration: underline;
@@ -29,20 +33,33 @@ a:focus {
 
 /* Header styles */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    color: #28CB8B;
+    padding: 10px 20px;
     text-align: center;
+    border-bottom: 1px solid #dadee3;
 }
 
 header h1 {
     font-size: 2rem;
 }
 
+.header-ico > span > img {
+    max-width: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+p.logo {
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
 /* Navigation styles */
 nav {
     display: flex;
     justify-content: center;
+    border-top: 1px solid #dadee3;
+    padding: 10px;
 }
 
 nav a {
@@ -111,6 +128,38 @@ input[type="submit"]:hover, button:hover {
 .gap-10 {
     gap: 10px;
 }
+
+.flex-row-default {
+    display: flex;
+    justify-content: space-between;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.mt-1{
+    margin-top: 10px;
+}
+
+.mt-2{
+    margin-top: 20px;
+}
+
+.mt-3{
+    margin-top: 30px;
+}
+
+.mt-4{
+    margin-top: 40px;
+}
+
+.whiteBtn {
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #000000;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     nav {
