@@ -1,6 +1,6 @@
 export const apiConstants = {
     banner: {
-        endpoint: '/banners',
+        endpoint: 'todos/1',
         requiresToken: false,
     }
 }

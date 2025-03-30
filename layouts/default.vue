@@ -2,7 +2,9 @@
   <div>
     <header v-if="showHeader">
       <div class="flex-row-default">
-        <p class="logo">koko</p>
+        <p class="logo">
+          <img src="~/assets/img/logo2.png" alt="Logo" /> <span>k<span class="green-text">o</span>k<span class="green-text">o</span></span>
+        </p>
         <div class="header-ico">
           <span @click="setLocaleF"><img src="https://img.icons8.com/?size=100&id=sGAvHbJsMRn2&format=png&color=28CB8B"></span>
           <span><img src="https://img.icons8.com/?size=100&id=86305&format=png&color=28CB8B"></span>
