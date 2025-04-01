@@ -3,13 +3,14 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     runtimeConfig: {
+        googleClientId: process.env.GOOGLE_CLIENT_ID,
+        googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        authSecret: process.env.AUTH_SECRET,
         public: {
             apiBaseUrl: process.env.NODE_ENV === 'production'
                 ? 'https://jsonplaceholder.typicode.com'
                 : 'http://localhost:3002',
-            googleClientId: process.env.GOOGLE_CLIENT_ID,
         },
-        googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
 
     plugins: ['~/plugins/loading.client.ts'],
@@ -19,8 +20,6 @@ export default defineNuxtConfig({
         '@nuxt/scripts',
         '@nuxt/ui',
         '@pinia/nuxt',
-        '@nuxt/auth-next',
-        '@nuxt/axios',
     ],
     typescript: {
         strict: true,

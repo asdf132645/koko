@@ -1,6 +1,6 @@
 <template>
   <div class="login-page">
-    <button @click="loginWithGoogle">Google로 로그인하기</button>
+    <button @click="loginWithGoogle">Google</button>
   </div>
 </template>
 

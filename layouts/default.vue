@@ -3,7 +3,8 @@
     <header v-if="showHeader">
       <div class="flex-row-default">
         <p class="logo">
-          <img src="~/assets/img/logo2.png" alt="Logo" /> <span>k<span class="green-text">o</span>k<span class="green-text">o</span></span>
+          <img src="~/assets/img/logo2.png" alt="Logo"/> <span>k<span class="green-text">o</span>k<span
+            class="green-text">o</span></span>
         </p>
         <div class="header-ico">
           <span @click="setLocaleF"><img src="https://img.icons8.com/?size=100&id=sGAvHbJsMRn2&format=png&color=4CAF4F"></span>
@@ -11,14 +12,19 @@
         </div>
       </div>
     </header>
+    <header v-if="showArrow">
+      <div class="flex-row-default">
+        <p class="showArrow" @click="goBack">
+          <img src="https://img.icons8.com/?size=100&id=39815&format=png&color=000000"/>
+        </p>
+      </div>
+    </header>
 
-    <main>
-      <slot></slot>
-    </main>
+    <slot></slot>
 
     <nav class="dock-container" v-if="showBottom">
       <div class="dock">
-        <img src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=4CAF4F">
+        <img src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=4CAF4F" @click="goHome">
         <img src="https://img.icons8.com/?size=100&id=Yj5svDsC4jQA&format=png&color=4CAF4F">
         <img src="https://img.icons8.com/?size=100&id=4aYYHCbDhuo7&format=png&color=4CAF4F">
       </div>
@@ -28,14 +34,15 @@
 
 <script setup lang="ts">
 import {useLanguageStore} from "~/composables/languageStore";
+defineProps<{ showHeader?: boolean, showBottom?: boolean, showArrow?:boolean }>();
 
-const languageStore = useLanguageStore();
-import { ref, computed } from 'vue';
+import {ref, computed} from 'vue';
 import {storeToRefs} from "pinia";
-
-defineProps<{ showHeader?: boolean, showBottom?: boolean }>();
-const { locale  } = storeToRefs(languageStore);
-const { setLocale } = languageStore as {
+import {useRouter} from "vue-router";
+const router = useRouter();
+const languageStore = useLanguageStore();
+const {locale} = storeToRefs(languageStore);
+const {setLocale} = languageStore as {
   t: (key: string) => string;
   setLocale: (lang: 'en' | 'ko') => void;
 };
@@ -47,6 +54,11 @@ const setLocaleF = () => {
   setLocale(langVal.value);
 }
 
+const goHome = () => {
+  router.push('/')
+}
 
-
+const goBack = () => {
+  window.history.back() // 브라우저의 뒤로가기 기능을 수행
+}
 </script>

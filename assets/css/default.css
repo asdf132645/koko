@@ -103,3 +103,64 @@ li.welcome-item > p > img {
     padding-left: 24px;
 }
 /* 첫 시작 화면 end */
+
+/* 인트로 */
+.custom-select {
+    position: relative;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.select-wrapper {
+    padding: 10px;
+    border: 1px solid #E8F5E9;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #E8F5E9;
+    color: #4CAF4F;
+}
+
+.selected-item {
+    color: #4CAF4F;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+.green-text-mid {
+    color: #4CAF4F;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+p.showArrow img {
+    width: 34px;
+}
+
+.introWrapper {
+    position: relative;
+    height: 88vh;
+}
+
+/* 인트로 끝*/

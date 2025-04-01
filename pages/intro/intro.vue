@@ -7,6 +7,16 @@
     </div>
 </template>
 <script setup lang="ts">
+import {onMounted} from "vue";
+import {useRoute} from "vue-router";
+const route = useRoute();
+
+onMounted(() => {
+  route.meta.layoutProps = {
+    showHeader: false,
+    showBottom: false
+  };
+});
 const emits = defineEmits();
 
 const start = () => {

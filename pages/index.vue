@@ -1,79 +1,83 @@
 <template>
-  <section>
-    <p class="welcome-title">{{ t('welcome') }}</p>
-    <p class="welcome-title2">{{ t('welcome2') }}</p>
+  <main>
+    <section>
+      <p class="welcome-title">{{ t('welcome') }}</p>
+      <p class="welcome-title2">{{ t('welcome2') }}</p>
 
-    <button class="width100 mt-2">{{ t('welcomeBtnStart') }}</button>
-    <button class="width100 mt-1 whiteBtn">{{ t('welcomeBtnGuide') }}</button>
-  </section>
+      <button class="width100 mt-2">{{ t('welcomeBtnStart') }}</button>
+      <button class="width100 mt-1 whiteBtn">{{ t('welcomeBtnGuide') }}</button>
+    </section>
 
-  <hr class="border-line"/>
-  <section>
-    <!-- Swiper 컴포넌트 추가 -->
-    <div>
-      <swiper-container
-          :pagination="true"
-          :navigation="true">
-        <swiper-slide>
-          <div class="slide-div-box">Slide 1</div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="slide-div-box">Slide 2</div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="slide-div-box">Slide 3</div>
-        </swiper-slide>
-      </swiper-container>
-    </div>
-  </section>
-  <section>
-    <div class="section-body">
-      <ul class="welcome-list">
-        <li class="welcome-item">
-          <p>
-            <img src="https://img.icons8.com/?size=100&id=47789&format=png&color=4CAF4F">
-          </p>
-          <div class="welcome-item-title">{{ t('map') }}</div>
-          <div>{{ t('mapDetail') }}</div>
-        </li>
-        <li class="welcome-item">
-          <p>
-            <img src="https://img.icons8.com/?size=100&id=20399&format=png&color=4CAF4F">
-          </p>
-          <div class="welcome-item-title">{{ t('guide') }}</div>
-          <div>{{ t('guideDetail') }}</div>
-        </li>
-        <li class="welcome-item">
-          <p>
-            <img src="https://img.icons8.com/?size=100&id=YwDrzldhsBCu&format=png&color=4CAF4F">
-          </p>
-          <div class="welcome-item-title">{{ t('kit') }}</div>
-          <div>{{ t('kitDetail') }}</div>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <section>
+    <hr class="border-line"/>
+    <section>
+      <!-- Swiper 컴포넌트 추가 -->
+      <div>
+        <swiper-container
+            :pagination="true"
+            :navigation="true">
+          <swiper-slide>
+            <div class="slide-div-box">Slide 1</div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="slide-div-box">Slide 2</div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="slide-div-box">Slide 3</div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </section>
+    <section>
+      <div class="section-body">
+        <ul class="welcome-list">
+          <li class="welcome-item">
+            <p>
+              <img src="https://img.icons8.com/?size=100&id=47789&format=png&color=4CAF4F">
+            </p>
+            <div class="welcome-item-title">{{ t('map') }}</div>
+            <div>{{ t('mapDetail') }}</div>
+          </li>
+          <li class="welcome-item">
+            <p>
+              <img src="https://img.icons8.com/?size=100&id=20399&format=png&color=4CAF4F">
+            </p>
+            <div class="welcome-item-title">{{ t('guide') }}</div>
+            <div>{{ t('guideDetail') }}</div>
+          </li>
+          <li class="welcome-item">
+            <p>
+              <img src="https://img.icons8.com/?size=100&id=YwDrzldhsBCu&format=png&color=4CAF4F">
+            </p>
+            <div class="welcome-item-title">{{ t('kit') }}</div>
+            <div>{{ t('kitDetail') }}</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
 
-  </section>
+    </section>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
-import { useLanguageStore } from '~/composables/languageStore';
+import {ref, onMounted, watch} from 'vue';
+import {useLanguageStore} from '~/composables/languageStore';
 import {useBanner} from "~/composables/useBanner";
+
 interface Slide {
   title: string;
   imageUrl: string;
 }
+
 definePageMeta({
-  layoutProps: { showHeader: true, showBottom: true },
+  layoutProps: {showHeader: true, showBottom: true, showArrow: false},
 });
 // Pinia store 가져오기
 const languageStore = useLanguageStore();
 
 // storeToRefs로는 반응형 상태만 가져오므로, t와 setLocale은 직접 가져와야 함
-const { t, setLocale, locale } = languageStore;
+const {t, setLocale, locale} = languageStore;
 
 // 다크 모드 상태
 const isDarkMode = ref(false);
@@ -110,8 +114,6 @@ const toggleDarkMode = () => {
   // localStorage에 상태 저장
   localStorage.setItem('darkMode', isDarkMode.value.toString());
 };
-
-
 
 
 const fetchSlides = async () => {
