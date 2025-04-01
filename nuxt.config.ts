@@ -7,8 +7,11 @@ export default defineNuxtConfig({
             apiBaseUrl: process.env.NODE_ENV === 'production'
                 ? 'https://jsonplaceholder.typicode.com'
                 : 'http://localhost:3002',
+            googleClientId: process.env.GOOGLE_CLIENT_ID,
         },
+        googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
+
     plugins: ['~/plugins/loading.client.ts'],
     modules: [
         '@nuxt/content',
@@ -16,6 +19,8 @@ export default defineNuxtConfig({
         '@nuxt/scripts',
         '@nuxt/ui',
         '@pinia/nuxt',
+        '@nuxt/auth-next',
+        '@nuxt/axios',
     ],
     typescript: {
         strict: true,
@@ -33,4 +38,5 @@ export default defineNuxtConfig({
         '~/assets/css/common.css',
         'swiper/swiper-bundle.css'
     ],
+
 })

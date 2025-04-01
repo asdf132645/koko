@@ -1,30 +1,41 @@
 <template>
   <div class="wrapper">
     <CustomLoading v-if="isLoading"/>
-    <NuxtLayout v-bind="layoutProps">
-      <NuxtPage/>
+    <NuxtLayout v-bind="layoutProps" v-if="!isLoading" :showHeader="showHeader" :showBottom="showHeader">
+      <Intro  @introValChange="introValChange" v-if="introShow"/>
+      <NuxtPage v-if="mainPageShow"/>
     </NuxtLayout>
   </div>
 </template>
+
 <script setup lang="ts">
 import {computed, ref, onMounted} from "vue";
-import {useRoute} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
+import Intro from "~/components/intro.vue";
 
 const isLoading = ref(true);
 const route = useRoute();
 const router = useRouter();
-
+const introShow = ref(false);
+const mainPageShow = ref(false);
+const showHeader = ref(false);
 
 const layoutProps = computed(() => route.meta.layoutProps || {});
 onMounted(() => {
   isLoading.value = true
+  introShow.value = false
+
   router.isReady().then(() => {
     setTimeout(() => {
-      isLoading.value = false
-    }, 2500)
+      isLoading.value = false;
+      introShow.value = true;  // 로딩이 끝난 후에 Intro를 보여주도록 설정
+    }, 2500);
   })
 })
 
-
-
+const introValChange = () => {
+  introShow.value = false;
+  mainPageShow.value = true;
+  showHeader.value = true;
+}
 </script>

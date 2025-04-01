@@ -6,8 +6,8 @@
           <img src="~/assets/img/logo2.png" alt="Logo" /> <span>k<span class="green-text">o</span>k<span class="green-text">o</span></span>
         </p>
         <div class="header-ico">
-          <span @click="setLocaleF"><img src="https://img.icons8.com/?size=100&id=sGAvHbJsMRn2&format=png&color=28CB8B"></span>
-          <span><img src="https://img.icons8.com/?size=100&id=86305&format=png&color=28CB8B"></span>
+          <span @click="setLocaleF"><img src="https://img.icons8.com/?size=100&id=sGAvHbJsMRn2&format=png&color=4CAF4F"></span>
+          <span><img src="https://img.icons8.com/?size=100&id=86305&format=png&color=4CAF4F"></span>
         </div>
       </div>
     </header>
@@ -16,11 +16,11 @@
       <slot></slot>
     </main>
 
-    <nav class="dock-container">
+    <nav class="dock-container" v-if="showBottom">
       <div class="dock">
-        <img src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=28CB8B">
-        <img src="https://img.icons8.com/?size=100&id=Yj5svDsC4jQA&format=png&color=28CB8B">
-        <img src="https://img.icons8.com/?size=100&id=4aYYHCbDhuo7&format=png&color=28CB8B">
+        <img src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=4CAF4F">
+        <img src="https://img.icons8.com/?size=100&id=Yj5svDsC4jQA&format=png&color=4CAF4F">
+        <img src="https://img.icons8.com/?size=100&id=4aYYHCbDhuo7&format=png&color=4CAF4F">
       </div>
     </nav>
   </div>
@@ -33,7 +33,7 @@ const languageStore = useLanguageStore();
 import { ref, computed } from 'vue';
 import {storeToRefs} from "pinia";
 
-defineProps<{ showHeader?: boolean }>();
+defineProps<{ showHeader?: boolean, showBottom?: boolean }>();
 const { locale  } = storeToRefs(languageStore);
 const { setLocale } = languageStore as {
   t: (key: string) => string;

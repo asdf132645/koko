@@ -38,7 +38,7 @@ a:focus {
 
 /* Header styles */
 header {
-    color: #28CB8B;
+    color: #4CAF4F;
     padding: 10px 20px;
     text-align: center;
     border-bottom: 1px solid #dadee3;
@@ -137,12 +137,12 @@ form {
 input, button, select, textarea {
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #2f868f;
+    border: 1px solid #4CAF4F;
     border-radius: 4px;
 }
 
 input[type="submit"], button {
-    background-color: #23b1bf;
+    background-color: #4CAF4F;
     color: #fff;
     cursor: pointer;
 }

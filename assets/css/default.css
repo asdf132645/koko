@@ -14,7 +14,7 @@ p.logo > img {
     background: #4CAF4F;
 }
 span.green-text {
-    color: #28CB8B;
+    color: #4CAF4F;
 }
 span.green-text2{
     color: #658b7c;
@@ -91,6 +91,15 @@ li.welcome-item > p > img {
     height: 200px;
     padding-top: 79px;
 }
-
-
+.buttonDefaultGreen.introBtn {
+    width: 93%;
+}
+.intro {
+    color: #4CAF4F;
+    font-size: 4rem;
+    font-weight: 600;
+    height: 100vh;
+    padding-top: 13%;
+    padding-left: 24px;
+}
 /* 첫 시작 화면 end */

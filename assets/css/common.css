@@ -1,12 +1,12 @@
 .buttonDefaultGreen {
     color: #ffffff;
     width: 100%;
-    background: #28CB8B;
+    background: #4CAF4F;
     border: none;
 }
 
 .buttonDefaultWhite {
-    color: #28CB8B;
+    color: #4CAF4F;
     width: 100%;
     background: #ffffff;
 }
@@ -14,16 +14,15 @@
 .buttonDefaultGreenDark {
     color: #ffffff;
     width: 100%;
-    background: #28CB8B;
+    background: #4CAF4F;
     border: none;
 }
 
 .buttonDefaultWhiteDark {
-    color: #28CB8B;
+    color: #4CAF4F;
     width: 100%;
     background: #ffffff;
 }
-
 
 .wrapper {
     max-width: 480px;

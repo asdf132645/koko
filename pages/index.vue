@@ -31,21 +31,21 @@
       <ul class="welcome-list">
         <li class="welcome-item">
           <p>
-            <img src="https://img.icons8.com/?size=100&id=47789&format=png&color=28CB8B">
+            <img src="https://img.icons8.com/?size=100&id=47789&format=png&color=4CAF4F">
           </p>
           <div class="welcome-item-title">{{ t('map') }}</div>
           <div>{{ t('mapDetail') }}</div>
         </li>
         <li class="welcome-item">
           <p>
-            <img src="https://img.icons8.com/?size=100&id=20399&format=png&color=28CB8B">
+            <img src="https://img.icons8.com/?size=100&id=20399&format=png&color=4CAF4F">
           </p>
           <div class="welcome-item-title">{{ t('guide') }}</div>
           <div>{{ t('guideDetail') }}</div>
         </li>
         <li class="welcome-item">
           <p>
-            <img src="https://img.icons8.com/?size=100&id=YwDrzldhsBCu&format=png&color=28CB8B">
+            <img src="https://img.icons8.com/?size=100&id=YwDrzldhsBCu&format=png&color=4CAF4F">
           </p>
           <div class="welcome-item-title">{{ t('kit') }}</div>
           <div>{{ t('kitDetail') }}</div>
@@ -53,19 +53,22 @@
       </ul>
     </div>
   </section>
+  <section>
+
+  </section>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
 import { useLanguageStore } from '~/composables/languageStore';
-import { storeToRefs } from 'pinia';
 import {useBanner} from "~/composables/useBanner";
-import {getBannerListFetch} from "~/server/services/banner/serviceBanner";
 interface Slide {
   title: string;
   imageUrl: string;
 }
-
+definePageMeta({
+  layoutProps: { showHeader: true, showBottom: true },
+});
 // Pinia store 가져오기
 const languageStore = useLanguageStore();
 
@@ -88,7 +91,6 @@ onMounted(() => {
   const lang = (localStorage.getItem('currentLanguage') as 'en' | 'ko') || 'en';  // 타입 단언 추가
   setLocale(lang);
   // fetchSlides();
-  console.log('getBannerListAxios', fetchSlides());
 });
 
 // 언어가 변경될 때마다 로컬 스토리지에 저장
@@ -109,9 +111,7 @@ const toggleDarkMode = () => {
   localStorage.setItem('darkMode', isDarkMode.value.toString());
 };
 
-definePageMeta({
-  layoutProps: { showHeader: true },
-});
+
 
 
 const fetchSlides = async () => {
