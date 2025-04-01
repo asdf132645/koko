@@ -1,10 +1,8 @@
-// 재사용 가능한 로직 비즈니스 로직
 // useHttpClient.ts
 import axios from 'axios';
 import type {AxiosRequestConfig} from 'axios';
 import type {Endpoint, GenericObject} from '~/types/general';
 import type {ApiResponse, HttpResponse} from "~/types/api";
-
 
 export function useHttpClient() {
     const router = useRouter();
@@ -99,7 +97,7 @@ export function useHttpClient() {
         }
     };
 
-    // type 용도 -> ? 쿼리 스트링으로 보낼지 여부
+    // httpGet 메소드
     const httpGet = async <T>(url: Endpoint, parameters?: string, type?: boolean): Promise<ApiResponse<T>> => {
         return httpGetAct(url.endpoint, url.requiresToken, parameters, type);
     };
@@ -128,19 +126,18 @@ export function useHttpClient() {
         }
     };
 
-
+    // httpPost 메소드
     const httpPost = async <T>(url: Endpoint, payload: GenericObject, contentType: string, formData = false): Promise<ApiResponse<T>> => {
         return httpPostAct(url.endpoint, url.requiresToken, payload, contentType, formData);
     };
 
     const httpPostAct = async <T>(url: string, requiresToken: boolean, payload: GenericObject, contentType: string, formData = false): Promise<ApiResponse<T>> => {
-
         const options: AxiosRequestConfig = {
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
             },
         };
-        // contentType에 따른 처리
+
         const contentTypeMap: { [key: string]: string } = {
             'blob': 'blob',
             'text/plain': 'text/plain',
@@ -152,13 +149,13 @@ export function useHttpClient() {
         } else if (contentType && contentTypeMap[contentType]) {
             options.headers = {'Content-Type': contentTypeMap[contentType]};
         }
-        // formData 처리
+
         if (formData) {
             options.headers = {'Content-Type': 'multipart/form-data'};
         }
 
-
         axios.defaults.withCredentials = true;
+
         try {
             const authOptions = await addAuthHeader(options, requiresToken || false); // 인증 헤더 추가
             const response: HttpResponse<T> = await axios.post(`${apiBaseUrl}/${url}`, payload, authOptions);
@@ -172,6 +169,7 @@ export function useHttpClient() {
         }
     };
 
+    // httpPut 메소드
     const httpPut = async <T>(url: Endpoint, payload: GenericObject, parameters?: string, type?: boolean): Promise<ApiResponse<T>> => {
         return httpPutAct(url.endpoint, payload, parameters, type);
     };
@@ -188,7 +186,8 @@ export function useHttpClient() {
         parameters = parameters || '';
 
         try {
-            const response: HttpResponse<T> = await axios.put(`${apiBaseUrl}/${url}${slush}${parameters}`, payload, options);
+            const authOptions = await addAuthHeader(options, true); // 인증 헤더 추가
+            const response: HttpResponse<T> = await axios.put(`${apiBaseUrl}/${url}${slush}${parameters}`, payload, authOptions);
             return Promise.resolve({
                 reasonPhrase: response.message || 'Success',
                 data: response.data?.data,
@@ -199,6 +198,7 @@ export function useHttpClient() {
         }
     };
 
+    // httpDelete 메소드
     const httpDelete = async <T>(url: Endpoint, payload: GenericObject, type?: boolean): Promise<ApiResponse<T>> => {
         return httpDeleteAct(url.endpoint, payload, type);
     };
@@ -211,12 +211,10 @@ export function useHttpClient() {
         };
 
         axios.defaults.withCredentials = true;
-        const slush = type ? '?' : '/';
+
         try {
-            const response: HttpResponse<T> = await axios.delete(`${apiBaseUrl}/${url}${slush}`, {
-                ...options,
-                data: payload
-            });
+            const authOptions = await addAuthHeader(options, true); // 인증 헤더 추가
+            const response: HttpResponse<T> = await axios.delete(`${apiBaseUrl}/${url}`, {data: payload, ...authOptions});
             return Promise.resolve({
                 reasonPhrase: response.message || 'Success',
                 data: response.data?.data,
@@ -227,16 +225,10 @@ export function useHttpClient() {
         }
     };
 
-
     return {
         httpGet,
-        httpGetAct,
         httpPost,
-        httpPostAct,
         httpPut,
-        httpPutAct,
         httpDelete,
-        httpDeleteAct,
     };
-
 }
